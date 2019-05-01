@@ -21,16 +21,14 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell: UITableViewCell =
             tableView.dequeueReusableCell(withIdentifier: "developerCell")!
         as UITableViewCell
         switch (indexPath.section) {
-        case kMobileSelection:
-            cell.textLabel!.text=mobileDevelopers[indexPath.row]
-        case kWebSection:
-            cell.textLabel!.text=webDevelopers[indexPath.row]
-        default:
-            cell.textLabel!.text="Unknown"
+        case kMobileSelection: cell.textLabel!.text=mobileDevelopers[indexPath.row]
+        case kWebSection: cell.textLabel!.text=webDevelopers[indexPath.row]
+        default: cell.textLabel!.text="Unknown"
         }
         let developerImage: UIImage=UIImage(named: cell.textLabel!.text!)!; cell.imageView!.image=developerImage
         return cell
